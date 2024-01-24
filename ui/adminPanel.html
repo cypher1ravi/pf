@@ -1,0 +1,161 @@
+<!-- views/adminPanel.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #d4d3d3;
+            /* White background */
+            color: #000;
+            /* Black text */
+        }
+
+        .navbar {
+            width: 100%;
+            padding: 15px 1px;
+            background: crimson;
+            font-family: "Ubuntu", sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .navbar .max-width {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            /* Updated from space-evenly to space-between */
+        }
+
+        .navbar .logo a {
+            color: #fff;
+            font-size: 35px;
+            font-weight: 600;
+            text-decoration: none;
+            /* Added to remove underline */
+        }
+
+        .navbar .logo span {
+            color: #332f2f;
+            transition: all 0.3s ease;
+        }
+
+        .navbar .menu {
+            list-style: none;
+            margin: 0;
+            padding: 10px;
+        }
+
+        .navbar .menu li {
+            display: inline-block;
+            margin-left: 15px;
+
+
+        }
+
+        .navbar .menu li a {
+            display: block;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 500;
+            text-decoration: none;
+            /* Added to remove underline */
+            transition: color 0.3s ease;
+        }
+
+        .navbar .menu li a:hover {
+            color: #222;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            /* Black main background */
+            color: #000000;
+            /* White text */
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #0b0b0b;
+            /* White label text */
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #dc143c;
+            /* Crimson button background */
+            color: #fff;
+            /* White text */
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #8b0000;
+            /* Darker crimson on hover */
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="max-width">
+            <div class="logo"><a href="#">Portfo<span>lio.</span></a></div>
+            <ul class="menu">
+                <li><a href="/" class="menu-btn">Home</a></li>
+                <li><a href="/logout" class="menu-btn">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Add project form -->
+        <form action="/addProject" method="post">
+            <label for="image">Project Image:</label>
+            <input type="file" accept="*image" id="image" name="image" required>
+
+            <label for="link">Project Link:</label>
+            <input type="text" id="link" name="link" required>
+
+            <label for="description">Project Description:</label>
+            <textarea id="description" name="description" required></textarea>
+
+            <button type="submit">Add Project</button>
+        </form>
+
+        <!-- Add skill form -->
+        <form action="/addSkill" method="post">
+            <label for="name">Skill Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="proficiency">Skill Proficiency:</label>
+            <input type="text" id="proficiency" name="proficiency" required>
+
+            <button type="submit">Add Skill</button>
+        </form>
+    </main>
+</body>
+
+</html>
